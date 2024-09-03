@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AM_WS2_001</title>
+	<meta charset="utf-8">
+	<!-- Compiled w/ P5LIVE, http://github.com/ffd8/p5live -->
+	<style type="text/css">
+		body{
+			margin:0;
+			overflow:hidden;
+		}
+		canvas{
+			position:fixed;
+			top:0;
+			left:0;
+			z-index:-1;
+			width:100vw;
+			height:100vh;
+			margin:0;
+		}
+	</style>
+	<script type="text/javascript">
+		// eco-mode = only render if window focused
+		window.onblur = function () {
+			noLoop();
+		};
+		window.onfocus = function () {
+			loop();
+		};
+	</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.2/p5.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/processing/p5.js-sound/lib/p5.sound.min.js"></script>
+</head>
+<body style="background: rgb(0, 0, 0);">
+
+<script type="text/javascript">
+//AM_WS2_001
+
+/* CUSTOM FUNCTIONS FOR P5LIVE */
+// keep fullscreen if window resized
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
+}
+
+// custom ease function
+function ease(iVal, oVal, eVal){
+	return oVal += (iVal - oVal) * eVal;
+}
+
+// processing compatibility
+function println(msg){
+	print(msg);
+}
+
+
+// Bouncing img[index] Logo
+// Daniel Shiffman
+// https://thecodingtrain.com/challenges/131-bouncing-img[index]-logo.html
+// https://youtu.be/0j86zuqqTlQ
+// https://editor.p5js.org/codingtrain/sketches/S-es-dYVn
+
+let x;
+let y;
+
+let xspeed;
+let yspeed;
+
+let img = [];
+let index = 0;
+
+
+function preload() {
+	img[0] = loadImage('https://i.imgur.com/OGh9PKT.png');
+	// img[1] = loadImage('https://i.imgur.com/fHrKpc8.png');
+	// img[2] = loadImage('https://i.imgur.com/9joPnNz.png');
+}
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  x = random(width);
+  y = random(height);
+  xspeed = 3;
+  yspeed = 3;
+  
+  img[0].resize(75, 0);
+  //img[1].resize(75, 0);
+  //img[2].resize(75, 0);
+  
+  textAlign(CENTER, CENTER);
+  textSize(width/60);
+  fill(255);
+  
+  
+}
+
+function draw() {
+  background(0, 50);
+  // rect(x, y, 80, 60);
+  // Draw the img[index] logo
+  //img[index].resize (75, 0)
+  
+  text('C H E E S E', width/2, height/2);
+
+  image(img[0], x, y);
+  
+  //img[index].resize (75, 0)
+  
+
+
+  x = x + xspeed;
+  y = y + yspeed;
+
+  if (x + img[0].width >= width) {
+    xspeed = -xspeed;
+    x = width - img[0].width;
+  } else if (x <= 0) {
+    xspeed = -xspeed;
+    x = 0;
+  }
+
+  if (y + img[0].height >= height) {
+    yspeed = -yspeed;
+    y = height - img[0].height;
+  } else if (y <= 0) {
+    yspeed = -yspeed;
+    y = 0;
+  }  
+}
+</script>
+
+</body>
+</html>
