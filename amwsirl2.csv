@@ -1,4 +1,4 @@
-Track Name,Genre,Duration (seconds),BPM,Key,Energy Level,Danceability,Popularity
+Track Name,Genre,Duration,BPM,Key,Energy Level,Danceability,Popularity
 "Let's Get It Started - Spike Mix" by Black Eyed Peas,Pop,204,127,C# Major,High,High,High
 "Chillin" by Wale,Hip Hop,222,95,D Minor,Medium,High,Medium
 "Empire State Of Mind" by JAY-Z,Hip Hop,277,84,F# Minor,Medium,High,High
